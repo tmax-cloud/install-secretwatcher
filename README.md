@@ -76,42 +76,36 @@
 * 준비:
 	* image version 수정
 		```bash
-		cd ${HPCD_SW_HOME}
 		sed -i 's/tmaxcloudck\/hypercloud4-secret-watcher:latest/tmaxcloudck\/hypercloud4-secret-watcher:'${HPCD_SW_VERSION}'/g' ${HPCD_SW_HOME}/hypercloud-secret-watcher-daemonset.yaml
 		```
 * 비고
 	* 폐쇄망의 경우 
 		```bash
-		cd ${HPCD_SW_HOME}
 		sed -i 's/tmaxcloudck\/hypercloud4-secret-watcher:latest/'${REGISTRY}'\/tmaxcloudck\/hypercloud4-secret-watcher:'${HPCD_SW_VERSION}'/g' ${HPCD_SW_HOME}/hypercloud-secret-watcher-daemonset.yaml
 		
 ## Step 2. hypercloud-secret-watcher-daemonset.yaml 실행
 * 목적 : `secret-watcher daemonset 생성`
 * 실행: 
 	```bash
-	kubectl apply -f ${HPCD_SW_HOME}/secret-watcher-${HPCD_SW_VERSION}/k8s-install/hypercloud-secret-watcher-daemonset.yaml
+	kubectl apply -f ${HPCD_SW_HOME}/hypercloud-secret-watcher-daemonset.yaml
 	```
 
 ## 삭제 가이드
 
-## Step 0. hypercloud-secret-watcher-daemonset.yaml 수정
-* 목적 : `hypercloud-secret-watcher-daemonset.yaml 수정`
+## Step 0. hypercloud-secret-watcher-daemonset.yaml 다운로드
+* 목적 : `hypercloud-secret-watcher-daemonset.yaml 다운로드`
 * 준비:
 	* yaml 파일 다운로드
 	```bash
 	mkdir -p ~/secret-watcher-install
 	export HPCD_SW_HOME=~/secret-watcher-install
-	export HPCD_SW_VERSION=<tag1>
 	cd ${HPCD_SW_HOME}
-	
-	* <tag1>에는 설치할 hypercloud4-secret-watcher 버전 명시
-		예시: export HPCD_SW_VERSION=4.1.0.9
-	wget https://raw.githubusercontent.com/tmax-cloud/secret-watcher/v${HPCD_SW_VERSION}/k8s-install/hypercloud-secret-watcher-daemonset.yaml
+	wget https://raw.githubusercontent.com/tmax-cloud/install-secretwatcher/4.1/manifest/hypercloud-secret-watcher-daemonset.yaml
 	```
 
-## Step 1. hypercloud-secret-watcher-daemonset.yaml 실행
+## Step 1. hypercloud-secret-watcher-daemonset.yaml 삭제 실행
 * 목적 : `secret-watcher daemonset 삭제`
 * 실행: 
 	```bash
-	kubectl delete -f ${HPCD_SW_HOME}/secret-watcher-${HPCD_SW_VERSION}/k8s-install/hypercloud-secret-watcher-daemonset.yaml
+	kubectl delete -f ${HPCD_SW_HOME}/hypercloud-secret-watcher-daemonset.yaml
 	```
