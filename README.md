@@ -19,7 +19,7 @@
 	cd ${HPCD_SW_HOME}
 	
 	* <tag1>에는 설치할 hypercloud4-secret-watcher 버전 명시
-		예시: export HPCD_SW_VERSION=4.1.0.9
+		예시: export HPCD_SW_VERSION=b4.1.0.9
     ```
 
     * install yaml을 다운로드한다.
@@ -45,7 +45,7 @@
 	tar -xvzf secret-watcher.tar.gz
 
 	* <tag1>에는 설치할 hypercloud4-secret-watcher 버전 명시
-		예시: export HPCD_SW_VERSION=4.1.0.9
+		예시: export HPCD_SW_VERSION=b4.1.0.9
 	```
 
 	**폐쇄망에서 설치하는 경우** 사용하려는 registry에 이미지를 push한다.
